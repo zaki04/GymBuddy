@@ -2,101 +2,82 @@ package com.example.toby.gymapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.Bundle;
+import android.content.SharedPreferences;
 import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegisterActivity extends AppCompatActivity {
+public class LoginUserActivity extends AppCompatActivity {
 
-    Button btnSignUp;
-    TextView textViewCreateAccount;
-    EditText editTextName, editTextAge, editTextEmail, editTextEmailConfirm, editTextPassword, editTextPasswordConfirm;
-    CheckBox checkBox;
+    ImageView imageViewSignIn;
+    TextView textViewSignIn;
+    EditText editTextLoginEmail, editTextLoginPassword;
+    CheckBox checkBoxSignIn;
     ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        setContentView(R.layout.activity_login_user);
 
         if(SharedPrefManager.getInstance(this).isLoggedIn()){
             finish();
             startActivity(new Intent(this, UserAccountActivity.class));
-            return;
         }
 
-        textViewCreateAccount = (TextView) findViewById(R.id.textViewCreateAccount);
-        editTextName = (EditText) findViewById(R.id.editTextName);
-        editTextAge = (EditText) findViewById(R.id.editTextAge);
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextEmailConfirm = (EditText) findViewById(R.id.editTextEmailConfirm);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-        editTextPasswordConfirm = (EditText) findViewById(R.id.editTextPasswordConfirm);
-        checkBox = (CheckBox) findViewById(R.id.checkBox);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        editTextLoginEmail = (EditText) findViewById(R.id.editTextLoginEmail);
+        editTextLoginPassword = (EditText) findViewById(R.id.editTextLoginPassword);
+        checkBoxSignIn = (CheckBox) findViewById(R.id.checkBoxSignIn);
 
-        findViewById(R.id.btnSignUp).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnUserSignIn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registerUser();
+                userLogin();
             }
         });
     }
 
-    private void registerUser(){
-        final String name = editTextName.getText().toString().trim();
-        final String birthdate = editTextAge.getText().toString().trim();
-        final String email = editTextEmail.getText().toString().trim();
-        final String password = editTextPassword.getText().toString().trim();
+    private void userLogin(){
 
-        if(TextUtils.isEmpty(name)){
-            editTextName.setError("Please enter name");
-            editTextName.requestFocus();
-            return;
-        }
-
-        if(TextUtils.isEmpty(birthdate)){
-            editTextAge.setError("Please enter date of birth");
-            editTextAge.requestFocus();
-            return;
-        }
+        final String email = editTextLoginEmail.getText().toString();
+        final String password = editTextLoginPassword.getText().toString();
 
         if(TextUtils.isEmpty(email)){
-            editTextEmail.setError("Please enter email");
-            editTextEmail.requestFocus();
+            editTextLoginEmail.setError("Please enter your email");
+            editTextLoginEmail.requestFocus();
             return;
         }
 
         if(TextUtils.isEmpty(password)){
-            editTextPassword.setError("Please enter password");
-            editTextPassword.requestFocus();
+            editTextLoginPassword.setError("Please enter your password");
+            editTextLoginPassword.requestFocus();
             return;
         }
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.URL_REGISTER,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.URL_LOGIN,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -124,7 +105,6 @@ public class RegisterActivity extends AppCompatActivity {
                             }else{
                                 Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
                             }
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -136,11 +116,8 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<>();
-                params.put("name", name);
-                params.put("birthdate", birthdate);
+            protected Map<String, String> getParams() throws AuthFailureError{
+                Map<String, String> params = new HashMap<>();
                 params.put("email", email);
                 params.put("password", password);
                 return params;
@@ -149,4 +126,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }
+
+
+
 }

@@ -15,9 +15,17 @@ public class LoginActivity extends AppCompatActivity {
 
 
      //same as the previous Logo screen, we make some buttons
+     final Button btnSignIn = (Button) findViewById(R.id.btnSignIn);
      final Button btnAccount = (Button) findViewById(R.id.btnAccount);
      final Button btnFacebook = (Button) findViewById(R.id.btnFacebook);
 
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent signInIntent = new Intent(LoginActivity.this, LoginUserActivity.class);
+                LoginActivity.this.startActivity(signInIntent);
+            }
+        });
 
         btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
