@@ -7,28 +7,30 @@ package com.example.toby.gymapp;
 public class User {
 
     private int id;
-    private String name, birthdate, email;
+    private String email, birthdate, name;
 
-    public User(int id, String name, String birthdate, String email){
+    public User(int id, String email, String birthdate, String name){
         this.id = id;
-        this.name = name;
-        this.birthdate = birthdate;
         this.email = email;
+        this.birthdate = birthdate;
+        this.name = name;
     }
 
     public int getId(){
         return id;
     }
 
-    public String getName(){
-        return name;
+
+    public String getEmail(){
+        return email;
     }
 
     public String getBirthdate(){
         return birthdate;
     }
 
-    public String getEmail(){
-        return email;
+    public String getName(){
+      return name;
     }
+
 }

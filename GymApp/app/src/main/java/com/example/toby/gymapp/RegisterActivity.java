@@ -2,6 +2,7 @@ package com.example.toby.gymapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
@@ -34,14 +35,11 @@ public class RegisterActivity extends AppCompatActivity {
     TextView textViewCreateAccount;
     EditText editTextName, editTextAge, editTextEmail, editTextEmailConfirm, editTextPassword, editTextPasswordConfirm;
     CheckBox checkBox;
-    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         if(SharedPrefManager.getInstance(this).isLoggedIn()){
             finish();
@@ -96,57 +94,64 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.URL_REGISTER,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        progressBar.setVisibility(View.GONE);
+        class RegisterUser extends AsyncTask<Void, Void, String>{
 
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
+            //private ProgressBar progressBar;
 
-                            if(!jsonObject.getBoolean("error")){
-                                Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+            protected String doInBackground(Void... voids){
+                RequestHandler requestHandler = new RequestHandler();
 
-                                JSONObject userJson = jsonObject.getJSONObject("user");
-
-                                User user = new User(
-                                        userJson.getInt("id"),
-                                        userJson.getString("name"),
-                                        userJson.getString("birthdate"),
-                                        userJson.getString("email")
-                                );
-
-                                SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
-
-                                finish();
-                                startActivity(new Intent(getApplicationContext(), UserAccountActivity.class));
-                            }else{
-                                Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<>();
+                HashMap<String, String> params = new HashMap<>();
                 params.put("name", name);
                 params.put("birthdate", birthdate);
                 params.put("email", email);
                 params.put("password", password);
-                return params;
-            }
-        };
 
-        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+                return requestHandler.sendPostRequest(Constants.URL_REGISTER, params);
+            }
+
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                //hiding the progressbar after completion
+                //progressBar.setVisibility(View.GONE);
+
+                try {
+                    //converting response to json object
+                    JSONObject obj = new JSONObject(s);
+
+                    //if no error in response
+                    if (!obj.getBoolean("error")) {
+                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+
+                        //getting the user from the response
+                        JSONObject userJson = obj.getJSONObject("user");
+
+                        //creating a new user object
+                        User user = new User(
+                                userJson.getInt("id"),
+                                userJson.getString("email"),
+                                userJson.getString("birthdate"),
+                                userJson.getString("name")
+                        );
+
+                        //storing the user in shared preferences
+                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+
+                        //starting the profile activity
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), UserAccountActivity.class));
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Some error occurred", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        //executing the async task
+        RegisterUser ru = new RegisterUser();
+        ru.execute();
     }
+
 }

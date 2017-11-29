@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ff6666"
     tools:context="com.example.toby.gymapp.UserAccountActivity">
 
     <LinearLayout
@@ -98,7 +99,10 @@
         <Button
             android:id="@+id/buttonAccountLogout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Logout" />
+            android:layout_height="match_parent"
+            android:background="@android:color/black"
+            android:text="Logout"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
     </LinearLayout>
 </RelativeLayout>

@@ -35,9 +35,10 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(KEY_ID, user.getId());
-        editor.putString(KEY_NAME, user.getName());
-        editor.putString(KEY_BIRTHDATE, user.getBirthdate());
         editor.putString(KEY_EMAIL, user.getEmail());
+        editor.putString(KEY_BIRTHDATE, user.getBirthdate());
+        editor.putString(KEY_NAME, user.getName());
+
         editor.apply();
     }
 
@@ -50,9 +51,9 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new User(
                 sharedPreferences.getInt(KEY_ID, -1),
-                sharedPreferences.getString(KEY_NAME, null),
+                sharedPreferences.getString(KEY_EMAIL, null),
                 sharedPreferences.getString(KEY_BIRTHDATE, null),
-                sharedPreferences.getString(KEY_EMAIL, null)
+                sharedPreferences.getString(KEY_NAME, null)
         );
     }
 
@@ -61,6 +62,9 @@ public class SharedPrefManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
-        mCtx.startActivity(new Intent(mCtx, LoginUserActivity.class));
+        //mCtx.startActivity(new Intent(mCtx, LoginUserActivity.class));
+        Intent i = new Intent(mCtx, LoginUserActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        mCtx.getApplicationContext().startActivity(i);
     }
 }
