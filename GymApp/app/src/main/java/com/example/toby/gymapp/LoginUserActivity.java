@@ -33,6 +33,7 @@ import java.util.Map;
 
 public class LoginUserActivity extends AppCompatActivity {
 
+    // Define View objects
     ImageView imageViewSignIn;
     TextView textViewSignIn;
     EditText editTextLoginEmail, editTextLoginPassword;
@@ -44,16 +45,12 @@ public class LoginUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_user);
 
-        //if(SharedPrefManager.getInstance(this).isLoggedIn()){
-          //  finish();
-            //startActivity(new Intent(this, UserAccountActivity.class));
-        //}
-
-
+        // Initialize view objects
         editTextLoginEmail = (EditText) findViewById(R.id.editTextLoginEmail);
         editTextLoginPassword = (EditText) findViewById(R.id.editTextLoginPassword);
         checkBoxSignIn = (CheckBox) findViewById(R.id.checkBoxSignIn);
 
+        // Call userLogin method when user presses login button
         findViewById(R.id.btnUserSignIn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,23 +59,30 @@ public class LoginUserActivity extends AppCompatActivity {
         });
     }
 
+    // Create userLogin method
     private void userLogin(){
 
+        // Get values from the fields email and password
         final String email = editTextLoginEmail.getText().toString();
         final String password = editTextLoginPassword.getText().toString();
 
+        // Validate field email
         if(TextUtils.isEmpty(email)){
             editTextLoginEmail.setError("Please enter your email");
             editTextLoginEmail.requestFocus();
             return;
         }
 
+        // Validate field password
         if(TextUtils.isEmpty(password)){
             editTextLoginPassword.setError("Please enter your password");
             editTextLoginPassword.requestFocus();
             return;
         }
 
+        // If the validation is ok
+
+        // Create an async task
         class UserLogin extends AsyncTask<Void, Void, String> {
 
             ProgressBar progressBar;
@@ -86,28 +90,30 @@ public class LoginUserActivity extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
+
                 progressBar = (ProgressBar) findViewById(R.id.progressBar);
                 progressBar.setVisibility(View.VISIBLE);
             }
 
             @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
+            protected void onPostExecute(String response) {
+                super.onPostExecute(response);
+
                 progressBar.setVisibility(View.GONE);
 
-
                 try {
-                    //converting response to json object
-                    JSONObject obj = new JSONObject(s);
+                    // Convert response json object
+                    JSONObject obj = new JSONObject(response);
 
-                    //if no error in response
+                    // If there is no error in the response
                     if (!obj.getBoolean("error")) {
+                        // Display a toast with message taken from php file
                         Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
 
-                        //getting the user from the response
+                        // Get the user from the response
                         JSONObject userJson = obj.getJSONObject("user");
 
-                        //creating a new user object
+                        // Create a new user object
                         User user = new User(
                                 userJson.getInt("id"),
                                 userJson.getString("email"),
@@ -115,14 +121,15 @@ public class LoginUserActivity extends AppCompatActivity {
                                 userJson.getString("name")
                         );
 
-                        //storing the user in shared preferences
+                        // Strore the user in shared preferences
                         SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
 
-                        //starting the profile activity
+                        // Start the user account activity
                         finish();
                         startActivity(new Intent(getApplicationContext(), UserAccountActivity.class));
                     } else {
-                        Toast.makeText(getApplicationContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
+                        // Display a toast if the email or password are invalid
+                        Toast.makeText(getApplicationContext(), "Invalid email or password", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -131,19 +138,21 @@ public class LoginUserActivity extends AppCompatActivity {
 
             @Override
             protected String doInBackground(Void... voids) {
-                //creating request handler object
+                // Create a request handler object
                 RequestHandler requestHandler = new RequestHandler();
 
-                //creating request parameters
+                // Create a HashMap
                 HashMap<String, String> params = new HashMap<>();
+                // Put the parameters to the HashMap
                 params.put("email", email);
                 params.put("password", password);
 
-                //returing the response
+                // Return the response
                 return requestHandler.sendPostRequest(Constants.URL_LOGIN, params);
             }
         }
 
+        // Execute the async task
         UserLogin ul = new UserLogin();
         ul.execute();
     }

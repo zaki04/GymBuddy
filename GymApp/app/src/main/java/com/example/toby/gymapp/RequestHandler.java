@@ -22,25 +22,39 @@ import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by aleks on 26.11.2017.
+ *
+ * This class handles sending the POST request to the Web Server URL
  */
 
 public class RequestHandler {
 
+// Create a method to send the POST request to the specified URL
     public String sendPostRequest (String requestURL, HashMap<String, String> postDataParams){
+
+// Declare variable url of class URL
         URL url;
 
+// Create  a String Builder
         StringBuilder sb = new StringBuilder();
         try {
             url = new URL(requestURL);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            // Set timeout for reading InputStream to 15000ms
             conn.setReadTimeout(15000);
+            // ???
             conn.setConnectTimeout(15000);
+            // Set HTTP method to POST
             conn.setRequestMethod("POST");
+            // Already true by default but setting just in case; needs to be true since this request
+            // is carrying an input (response) body.
             conn.setDoInput(true);
+            // Allow to send a body via connection
             conn.setDoOutput(true);
 
+            // Create an OutputStream
             OutputStream os = conn.getOutputStream();
 
+            // ???
             BufferedWriter writer = new BufferedWriter(
                     new OutputStreamWriter(os, "UTF-8"));
             writer.write(getPostDataString(postDataParams));
