@@ -19,6 +19,12 @@ public class LoginActivity extends AppCompatActivity {
      final Button btnAccount = (Button) findViewById(R.id.btnAccount);
      final Button btnFacebook = (Button) findViewById(R.id.btnFacebook);
 
+        if(SharedPrefManager.getInstance(this).isLoggedIn()){
+            finish();
+            startActivity(new Intent(this, UserAccountActivity.class));
+            return;
+        }
+
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

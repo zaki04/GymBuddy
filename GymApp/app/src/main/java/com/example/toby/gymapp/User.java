@@ -8,36 +8,36 @@ package com.example.toby.gymapp;
 
 public class User {
 
-// Declare variables
+    // Declare variables
     private int id;
-    private String email, birthdate, name;
+    private String name, birthdate, email;
 
-// Create a constructor for the objects
-    public User(int id, String email, String birthdate, String name){
+    // Create a constructor for the objects
+    public User(int id, String name, String birthdate, String email){
         this.id = id;
-        this.email = email;
-        this.birthdate = birthdate;
         this.name = name;
+        this.birthdate = birthdate;
+        this.email = email;
     }
 
-// Getter method for user's id
+    // Getter method for user's id
     public int getId(){
         return id;
     }
 
-// Getter method for user's email
-    public String getEmail(){
-        return email;
+    // Getter method for user's email
+    public String getName(){
+        return name;
     }
 
-// Getter method for user's birthdate
+    // Getter method for user's birthdate
     public String getBirthdate(){
         return birthdate;
     }
 
-// Getter method for the user's name
-    public String getName(){
-      return name;
+    // Getter method for the user's name
+    public String getEmail(){
+      return email;
     }
 
 }

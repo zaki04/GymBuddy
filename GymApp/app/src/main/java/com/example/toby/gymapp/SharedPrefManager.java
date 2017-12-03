@@ -16,7 +16,7 @@ import android.content.SharedPreferences;
 
 public class SharedPrefManager {
 
-// Declare constants
+    // Declare constants
     private static final String SHARED_PREF_NAME = "mysharedpref12";
     private static final String KEY_NAME = "keyname";
     private static final String KEY_BIRTHDATE = "keybirthdate";
@@ -38,8 +38,8 @@ public class SharedPrefManager {
         return mInstance;
     }
 
-// Create method for login
-// This method stores the user data in Shared Preferences
+    // Create method for login
+    // This method stores the user data in Shared Preferences
     public void userLogin(User user){
         // Create Shared Preferences; Context.MODE_PRIVATE means only this application can acces this Shared Preferences
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
@@ -47,31 +47,31 @@ public class SharedPrefManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         // Put all the values from the object user to the editor
         editor.putInt(KEY_ID, user.getId());
-        editor.putString(KEY_EMAIL, user.getEmail());
-        editor.putString(KEY_BIRTHDATE, user.getBirthdate());
         editor.putString(KEY_NAME, user.getName());
-// Commit the preferences changes back form the editor to the Shared Preferences objects it's editing
+        editor.putString(KEY_BIRTHDATE, user.getBirthdate());
+        editor.putString(KEY_EMAIL, user.getEmail());
+        // Commit the preferences changes back form the editor to the Shared Preferences objects it's editing
         editor.apply();
     }
 
-// Create a boolean method that checks if the user is already logged in
+    // Create a boolean method that checks if the user is already logged in
     public boolean isLoggedIn(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_EMAIL, null) != null;
     }
 
-// Create a method that gives the logged in user
+    // Create a method that gives the logged in user
     public User getUser(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new User(
                 sharedPreferences.getInt(KEY_ID, -1),
-                sharedPreferences.getString(KEY_EMAIL, null),
+                sharedPreferences.getString(KEY_NAME, null),
                 sharedPreferences.getString(KEY_BIRTHDATE, null),
-                sharedPreferences.getString(KEY_NAME, null)
+                sharedPreferences.getString(KEY_EMAIL, null)
         );
     }
 
-// Create a method that will allow the user to log out
+    // Create a method that will allow the user to log out
     public void logout(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

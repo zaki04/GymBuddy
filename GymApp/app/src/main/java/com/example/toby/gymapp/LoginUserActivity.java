@@ -38,6 +38,7 @@ public class LoginUserActivity extends AppCompatActivity {
     TextView textViewSignIn;
     EditText editTextLoginEmail, editTextLoginPassword;
     CheckBox checkBoxSignIn;
+    ProgressBar progressBarUserLogin;
 
 
     @Override
@@ -49,6 +50,14 @@ public class LoginUserActivity extends AppCompatActivity {
         editTextLoginEmail = (EditText) findViewById(R.id.editTextLoginEmail);
         editTextLoginPassword = (EditText) findViewById(R.id.editTextLoginPassword);
         checkBoxSignIn = (CheckBox) findViewById(R.id.checkBoxSignIn);
+        progressBarUserLogin = (ProgressBar) findViewById(R.id.progressBarUserLogin);
+
+        // If user is already logged in, display user profile
+        if(SharedPrefManager.getInstance(this).isLoggedIn()){
+            finish();
+            startActivity(new Intent(this, UserAccountActivity.class));
+            return;
+        }
 
         // Call userLogin method when user presses login button
         findViewById(R.id.btnUserSignIn).setOnClickListener(new View.OnClickListener() {
@@ -80,80 +89,77 @@ public class LoginUserActivity extends AppCompatActivity {
             return;
         }
 
+        progressBarUserLogin.setVisibility(View.VISIBLE);
         // If the validation is ok
 
-        // Create an async task
-        class UserLogin extends AsyncTask<Void, Void, String> {
+        // Create a string request
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.URL_LOGIN,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        progressBarUserLogin.setVisibility(View.GONE);
 
-            ProgressBar progressBar;
+                        try {
+                            // Convert the response to json object
+                            JSONObject obj = new JSONObject(response);
 
-            @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
+                            // If there is no error in response
+                            if (!obj.getBoolean("error")) {
+                                // Display a toast with message from json object
+                                Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
 
-                progressBar = (ProgressBar) findViewById(R.id.progressBar);
-                progressBar.setVisibility(View.VISIBLE);
-            }
+                                // Get the user from the response
+                                JSONObject userJson = obj.getJSONObject("user");
 
-            @Override
-            protected void onPostExecute(String response) {
-                super.onPostExecute(response);
+                                // Create a new user object
+                                User user = new User(
+                                        userJson.getInt("id"),
+                                        userJson.getString("name"),
+                                        userJson.getString("birthdate"),
+                                        userJson.getString("email")
+                                );
 
-                progressBar.setVisibility(View.GONE);
+                                // Store the user in shared preferences
+                                SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
 
-                try {
-                    // Convert response json object
-                    JSONObject obj = new JSONObject(response);
-
-                    // If there is no error in the response
-                    if (!obj.getBoolean("error")) {
-                        // Display a toast with message taken from php file
-                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
-
-                        // Get the user from the response
-                        JSONObject userJson = obj.getJSONObject("user");
-
-                        // Create a new user object
-                        User user = new User(
-                                userJson.getInt("id"),
-                                userJson.getString("email"),
-                                userJson.getString("birthdate"),
-                                userJson.getString("name")
-                        );
-
-                        // Strore the user in shared preferences
-                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
-
-                        // Start the user account activity
-                        finish();
-                        startActivity(new Intent(getApplicationContext(), UserAccountActivity.class));
-                    } else {
-                        // Display a toast if the email or password are invalid
-                        Toast.makeText(getApplicationContext(), "Invalid email or password", Toast.LENGTH_SHORT).show();
+                                // Start the user account activity
+                                finish();
+                                startActivity(new Intent(getApplicationContext(), UserAccountActivity.class));
+                            } else {
+                                // Display a toast with message coming from the server
+                                Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            protected String doInBackground(Void... voids) {
-                // Create a request handler object
-                RequestHandler requestHandler = new RequestHandler();
-
-                // Create a HashMap
-                HashMap<String, String> params = new HashMap<>();
-                // Put the parameters to the HashMap
+                },
+                // Pass a new error listener
+                // If there is an error, this method will be executed
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Set progress bar visibility to gone
+                        progressBarUserLogin.setVisibility(View.GONE);
+                        // Display a toast with error message
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            @Override // Override getParams method
+            protected Map<String, String> getParams() throws AuthFailureError {
+                // Define a map object
+                Map<String, String> params = new HashMap<>();
+                // Put all the parameters required in this hash map
+                // The 1st parameter is the text we've written in the POST variable of the php script
+                // The 2nd parameter is the actual value that needs to be sent
                 params.put("email", email);
                 params.put("password", password);
-
-                // Return the response
-                return requestHandler.sendPostRequest(Constants.URL_LOGIN, params);
+                // Return parameters
+                return params;
             }
-        }
+        };
 
-        // Execute the async task
-        UserLogin ul = new UserLogin();
-        ul.execute();
+        // Add the string request to request queue
+        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }
 }
