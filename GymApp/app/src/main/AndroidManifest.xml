@@ -23,7 +23,9 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginUserActivity" />
-        <activity android:name=".UserAccountActivity"></activity>
+        <activity android:name=".UserAccountActivity" />
+        <activity android:name=".ShowEventActivity" />
+        <activity android:name=".CalendarActivity"></activity>
     </application>
 
 </manifest>

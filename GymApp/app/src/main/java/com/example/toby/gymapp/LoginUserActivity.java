@@ -55,7 +55,7 @@ public class LoginUserActivity extends AppCompatActivity {
         // If user is already logged in, display user profile
         if(SharedPrefManager.getInstance(this).isLoggedIn()){
             finish();
-            startActivity(new Intent(this, UserAccountActivity.class));
+            startActivity(new Intent(LoginUserActivity.this, MainActivity.class));
             return;
         }
 

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -29,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     // Define View objects
     private TextView textViewCreateAccount;
     private EditText editTextName, editTextAge, editTextEmail, editTextEmailConfirm, editTextPassword, editTextPasswordConfirm;
-    private CheckBox checkBox;
+    private CheckBox checkBoxAgreedConditions;
     private ProgressBar progressBarRegister;
 
     @Override
@@ -40,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         // If user is already logged in, display user profile
         if(SharedPrefManager.getInstance(this).isLoggedIn()){
             finish();
-            startActivity(new Intent(this, UserAccountActivity.class));
+            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
             return;
         }
 
@@ -52,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
         editTextEmailConfirm = (EditText) findViewById(R.id.editTextEmailConfirm);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         editTextPasswordConfirm = (EditText) findViewById(R.id.editTextPasswordConfirm);
-        checkBox = (CheckBox) findViewById(R.id.checkBox);
+        checkBoxAgreedConditions = (CheckBox) findViewById(R.id.checkBoxAgreedConditions);
         progressBarRegister = (ProgressBar) findViewById(R.id.progressBarRegister);
 
         // Set OnClickListener for the button
@@ -76,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
         String emailConfirm = editTextEmailConfirm.getText().toString().trim();
         final String password = editTextPassword.getText().toString().trim();
         String passwordConfirm = editTextPasswordConfirm.getText().toString().trim();
-        CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox);
+        CheckBox checkBox = (CheckBox) findViewById(R.id.checkBoxAgreedConditions);
 
         // Validate field name
         if(TextUtils.isEmpty(name)){
@@ -135,7 +134,7 @@ public class RegisterActivity extends AppCompatActivity {
         // Create a string request
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.URL_REGISTER,
                 // Pass a new on response listener
-                // If there is no error, this method will br executed
+                // If there is no error, this method will be executed
                 // In the response we will get json object
                 new Response.Listener<String>() {
                     @Override
@@ -168,7 +167,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 // Start the profile activity
                                 finish();
-                                startActivity(new Intent(getApplicationContext(), UserAccountActivity.class));
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             } else {
                                 Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             }
