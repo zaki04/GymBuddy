@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">GymApp</string>
+
+    <string-array name="gymsArray">
+            <item>Gym1, Address1</item>
+            <item>Gym2, Address2</item>
+            <item>Gym3, Address3</item>
+    </string-array>
+
+
 </resources>

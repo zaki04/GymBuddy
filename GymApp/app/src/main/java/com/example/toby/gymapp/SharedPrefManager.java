@@ -23,6 +23,15 @@ public class SharedPrefManager {
     private static final String KEY_EMAIL = "keyemail";
     private static final String KEY_ID = "keyid";
 
+    private static final String KEY_EVENT_ID = "keyeventid";
+    private static final String KEY_UNIQUEID = "keyuniqueid";
+    private static final String KEY_TITLE = "keytitle";
+    private static final String KEY_DESCRIPTION = "keydescription";
+    private static final String KEY_DATE = "keydate";
+    private static final String KEY_TIME = "keytime";
+    private static final String KEY_GYM = "keygym";
+    private static final String KEY_CREATOR = "keyemail";
+
     private static SharedPrefManager mInstance;
     private static Context mCtx;
 
@@ -82,5 +91,36 @@ public class SharedPrefManager {
         Intent i = new Intent(mCtx, LoginUserActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mCtx.getApplicationContext().startActivity(i);
+    }
+
+    public Event getEvent(Event event){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return new Event(
+                sharedPreferences.getInt(KEY_EVENT_ID, -1),
+                sharedPreferences.getString(KEY_UNIQUEID, null),
+                sharedPreferences.getString(KEY_TITLE, null),
+                sharedPreferences.getString(KEY_DESCRIPTION, null),
+                sharedPreferences.getString(KEY_DATE, null),
+                sharedPreferences.getString(KEY_TIME, null),
+                sharedPreferences.getString(KEY_GYM, null),
+                sharedPreferences.getString(KEY_CREATOR, null)
+        );
+    }
+
+    public void createEvent(Event event){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        // Create an editor
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        // Put all the values from the object user to the editor
+        editor.putInt(KEY_EVENT_ID, event.getId());
+        editor.putString(KEY_UNIQUEID, event.getUniqueid());
+        editor.putString(KEY_TITLE, event.getTitle());
+        editor.putString(KEY_DESCRIPTION, event.getDescription());
+        editor.putString(KEY_DATE, event.getTime());
+        editor.putString(KEY_TIME, event.getTime());
+        editor.putString(KEY_GYM, event.getGym());
+        editor.putString(KEY_CREATOR, event.getCreator());
+        // Commit the preferences changes back form the editor to the Shared Preferences objects it's editing
+        editor.apply();
     }
 }

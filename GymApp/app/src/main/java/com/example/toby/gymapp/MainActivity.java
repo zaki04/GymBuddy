@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton ImageButtonProfile = (ImageButton) findViewById(R.id.imageButtonProfile);
         final ImageButton ImageButtonCalendar = (ImageButton) findViewById(R.id.imageButtonCalendar);
         final ImageButton ImageButtonMenu = (ImageButton) findViewById(R.id.imageButtonMenu);
-
+        final ImageButton ImageButtonCreateEvent = (ImageButton) findViewById(R.id.imageButtonCreateEvent);
 
         //making the btnShowEvent go to the ShowEventActivity on click
         btnShowEvent.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent showMenuIntent = new Intent(MainActivity.this, MainActivity.class);
                 MainActivity.this.startActivity(showMenuIntent);
 
+            }
+        });
+
+        ImageButtonCreateEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent showCreateEventIntent = new Intent(MainActivity.this, CreateEvent.class);
+                MainActivity.this.startActivity(showCreateEventIntent);
             }
         });
         //Last but not least, the ImageButtonCalendar to sent the user to the calendar activity.
