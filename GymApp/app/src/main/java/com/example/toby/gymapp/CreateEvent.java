@@ -187,7 +187,7 @@ public class CreateEvent extends AppCompatActivity {
     }
 
     private void updateLabel(){
-        String myFormat = "MM/dd/yy";
+        String myFormat = "dd-MM-yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         etCreateEventDate.setText(sdf.format(myCalendar.getTime()));

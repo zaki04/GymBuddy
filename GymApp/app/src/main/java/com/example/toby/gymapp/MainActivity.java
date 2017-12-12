@@ -4,18 +4,47 @@ import android.content.Intent;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ToggleButton;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+    //private static final String URL_GET_EVENTS = "http://gymapp.cba.pl/getAllEvents.php";
+
+    List<Event> eventList;
+
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        eventList = new ArrayList<>();
+
+        loadEvents();
 
         //creating buttons and referencing them to the XML
         final Button btnAllEvents = (Button) findViewById(R.id.btnAllEvents);
@@ -79,6 +108,50 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    private void loadEvents(){
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_GET_EVENTS,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            JSONArray array = new JSONArray(response);
+
+                            for (int i = 0; i < array.length(); i++){
+
+                                JSONObject event = array.getJSONObject(i);
+
+                                eventList.add(new Event(
+                                        event.getInt("id"),
+                                        event.getString("uniqueid"),
+                                        event.getString("title"),
+                                        event.getString("description"),
+                                        event.getString("date"),
+                                        event.getString("time"),
+                                        event.getString("gym"),
+                                        event.getString("creator")
+                                ));
+                            }
+
+                            EventsAdapter adapter = new EventsAdapter(MainActivity.this, eventList);
+                            recyclerView.setAdapter(adapter);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+        Volley.newRequestQueue(this).add(stringRequest);
     }
 }

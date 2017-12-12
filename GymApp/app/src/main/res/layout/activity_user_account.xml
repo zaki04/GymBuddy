@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="#ff6666"
     tools:context="com.example.toby.gymapp.UserAccountActivity">
 
     <LinearLayout
@@ -12,144 +12,85 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="386dp"
-            android:layout_height="101dp"
-            android:layout_marginBottom="25dp"
-            android:background="@color/GymBuddyRed"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp">
-
-            <TextView
-                android:id="@+id/textViewCreateAccount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:fontFamily="sans-serif"
-                android:text="My profile"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="88dp"
-                tools:layout_editor_absoluteY="31dp" />
-
-        </RelativeLayout>
-
-
         <TableLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
 
-            <TableRow android:paddingBottom="15dp">
+            <TableRow>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/GymBuddyRed"
-                    android:fontFamily="sans-serif"
                     android:padding="10dp"
-                    android:paddingBottom="15dp"
                     android:text="Id"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
                 <TextView
                     android:id="@+id/textViewAccountId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
                     android:padding="10dp"
-                    android:paddingBottom="15dp"
                     android:text="1"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textSize="16sp" />
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
             </TableRow>
 
-            <TableRow android:paddingBottom="15dp">
+            <TableRow>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/GymBuddyRed"
-                    android:fontFamily="sans-serif"
                     android:padding="10dp"
-                    android:paddingBottom="15dp"
                     android:text="Name"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
                 <TextView
                     android:id="@+id/textViewAccountName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
                     android:padding="10dp"
-                    android:paddingBottom="15dp"
                     android:text="probelalkhan"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textSize="16sp" />
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
             </TableRow>
 
-            <TableRow android:paddingBottom="15dp">
+            <TableRow>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/GymBuddyRed"
-                    android:fontFamily="sans-serif"
                     android:padding="10dp"
-                    android:paddingBottom="15dp"
                     android:text="Birthdate"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
                 <TextView
                     android:id="@+id/textViewAccountAge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
                     android:padding="10dp"
-                    android:paddingBottom="15dp"
                     android:text="27.07.93"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textSize="16sp" />
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
             </TableRow>
 
 
-            <TableRow android:paddingBottom="15dp">
+            <TableRow>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
-                    android:background="@color/GymBuddyRed"
-                    android:fontFamily="sans-serif"
                     android:padding="10dp"
-                    android:paddingBottom="15dp"
                     android:text="Email"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
                 <TextView
                     android:id="@+id/textViewAccountEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
-                    android:fontFamily="sans-serif"
                     android:padding="10dp"
-                    android:paddingBottom="15dp"
                     android:text="probelalkhan@gmail.com"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textSize="16sp" />
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
             </TableRow>
 
@@ -157,15 +98,11 @@
 
         <Button
             android:id="@+id/buttonAccountLogout"
-            style="@android:style/Widget.Material.Light.Button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/GymBuddyRed"
-            android:fontFamily="sans-serif"
+            android:background="@android:color/black"
             android:text="Logout"
-            android:textColor="@android:color/black"
-            android:textColorLink="@android:color/black"
-            android:textSize="16sp"
+            android:textColor="@android:color/white"
             android:textStyle="bold" />
     </LinearLayout>
 </RelativeLayout>
