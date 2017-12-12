@@ -27,10 +27,6 @@
         <activity android:name=".ShowEventActivity" />
         <activity android:name=".CalendarActivity" />
         <activity android:name=".CreateEvent"></activity>
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
