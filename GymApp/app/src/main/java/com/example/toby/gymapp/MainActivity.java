@@ -49,23 +49,12 @@ public class MainActivity extends AppCompatActivity {
         //creating buttons and referencing them to the XML
         final Button btnAllEvents = (Button) findViewById(R.id.btnAllEvents);
         final Button btnMyEvents = (Button) findViewById(R.id.btnMyEvents);
-        final Button btnShowEvent = (Button) findViewById(R.id.btnShowEvent);
 
         final ImageButton ImageButtonProfile = (ImageButton) findViewById(R.id.imageButtonProfile);
         final ImageButton ImageButtonCalendar = (ImageButton) findViewById(R.id.imageButtonCalendar);
         final ImageButton ImageButtonMenu = (ImageButton) findViewById(R.id.imageButtonMenu);
         final ImageButton ImageButtonCreateEvent = (ImageButton) findViewById(R.id.imageButtonCreateEvent);
 
-        //making the btnShowEvent go to the ShowEventActivity on click
-        btnShowEvent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent showEventIntent = new Intent(MainActivity.this, ShowEventActivity.class);
-                MainActivity.this.startActivity(showEventIntent);
-
-            }
-        });
 
         //making the ImageButtonProfile go to the UserAccountActivity on click, note that if not logged
         //in it will just go to the LoginActivity.

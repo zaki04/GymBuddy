@@ -93,7 +93,7 @@ public class SharedPrefManager {
         mCtx.getApplicationContext().startActivity(i);
     }
 
-    public Event getEvent(Event event){
+    public Event getEvent(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new Event(
                 sharedPreferences.getInt(KEY_EVENT_ID, -1),
@@ -117,6 +117,23 @@ public class SharedPrefManager {
         editor.putString(KEY_TITLE, event.getTitle());
         editor.putString(KEY_DESCRIPTION, event.getDescription());
         editor.putString(KEY_DATE, event.getTime());
+        editor.putString(KEY_TIME, event.getTime());
+        editor.putString(KEY_GYM, event.getGym());
+        editor.putString(KEY_CREATOR, event.getCreator());
+        // Commit the preferences changes back form the editor to the Shared Preferences objects it's editing
+        editor.apply();
+    }
+
+    public void getOneEvent(Event event){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        // Create an editor
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        // Put all the values from the object user to the editor
+        editor.putInt(KEY_EVENT_ID, event.getId());
+        editor.putString(KEY_UNIQUEID, event.getUniqueid());
+        editor.putString(KEY_TITLE, event.getTitle());
+        editor.putString(KEY_DESCRIPTION, event.getDescription());
+        editor.putString(KEY_DATE, event.getDate());
         editor.putString(KEY_TIME, event.getTime());
         editor.putString(KEY_GYM, event.getGym());
         editor.putString(KEY_CREATOR, event.getCreator());

@@ -23,7 +23,7 @@ public class UserAccountActivity extends AppCompatActivity {
         // If the user is not logged in, start Login User Activity
         if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
-            startActivity(new Intent(this, LoginUserActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
         }
 
         // Initialize view objects

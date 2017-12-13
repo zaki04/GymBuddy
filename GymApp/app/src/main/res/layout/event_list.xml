@@ -1,56 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvEventListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvEventListDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/tvEventListGym"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gym"
+            android:textSize="18sp" />
 
         <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="367dp"
-            android:layout_height="144dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="68dp"
-            android:orientation="vertical"
-            android:visibility="visible">
-
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvEventListTitle"
-                android:layout_width="match_parent"
+                android:id="@+id/tvEventListDate"
+                android:layout_width="174dp"
                 android:layout_height="wrap_content"
-                android:text="Gym with Lars"
-                android:textAlignment="viewStart"
-                android:textColor="@android:color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:layout_weight="1"
+                android:text="Date"
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/tvEventListDescription"
-                android:layout_width="match_parent"
+                android:id="@+id/tvEventListTime"
+                android:layout_width="176dp"
                 android:layout_height="wrap_content"
-                android:text="Strenght training session and a lot of cardio featuring big Lars, make sure to bring muscle and a good mood. "
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvEventListPlace"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="UniFitness (AAU)  7/11-2017"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
+                android:layout_weight="1"
+                android:text="Time"
+                android:textSize="18sp" />
         </LinearLayout>
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/tvEventListCreator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Created by"
+            android:visibility="invisible" />
 
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
