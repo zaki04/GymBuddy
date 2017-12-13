@@ -57,7 +57,7 @@ public class ShowEventActivity extends AppCompatActivity {
         String clickedCreator = intent.getStringExtra("clickedCreator");
 
         tvShowEventTitle.setText(clickedTitle);
-        tvShowEventCreator.setText(clickedCreator);
+        tvShowEventCreator.setText("Created by " + clickedCreator);
         tvShowEventPlace.setText(clickedGym);
         tvShowEventDate.setText(clickedDate);
         tvShowEventTime.setText(clickedTime);
