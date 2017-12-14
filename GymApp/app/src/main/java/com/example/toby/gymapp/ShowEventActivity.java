@@ -26,13 +26,22 @@ import java.util.Map;
 
 public class ShowEventActivity extends AppCompatActivity {
 
-    TextView tvShowEventTitle, tvShowEventCreator, tvShowEventPlace, tvShowEventDescription, tvShowEventDate, tvShowEventTime;
+    // Define view objects
+    TextView tvShowEventTitle, tvShowEventCreator, tvShowEventPlace, tvShowEventDescription,
+            tvShowEventDate, tvShowEventTime;
 
+    // Define a list
     List participants;
+
+    // Define a list view
     ListView participantList;
+
+    // Define an array adapter
     ArrayAdapter arrayAdapter;
 
+    // Get currently logged in user from shared preferences
     User user = SharedPrefManager.getInstance(this).getUser();
+    // Get the user's name from shared preferences
     String participantName = user.getName();
 
     @Override
@@ -40,6 +49,7 @@ public class ShowEventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_event);
 
+        // Initialize view objects
         tvShowEventTitle = (TextView) findViewById(R.id.tvShowEventTitle);
         tvShowEventCreator = (TextView) findViewById(R.id.tvShowEventCreator);
         tvShowEventPlace = (TextView) findViewById(R.id.tvShowEventPlace);
@@ -47,8 +57,10 @@ public class ShowEventActivity extends AppCompatActivity {
         tvShowEventDate = (TextView) findViewById(R.id.tvShowEventDate);
         tvShowEventTime = (TextView) findViewById(R.id.tvShowEventTime);
 
+        // Return the intent that started this activity
         Intent intent = getIntent();
 
+        // Retrieve extended data from the intent
         String clickedTitle = intent.getStringExtra("clickedTitle");
         String clickedDescription = intent.getStringExtra("clickedDescription");
         String clickedDate = intent.getStringExtra("clickedDate");
@@ -56,6 +68,7 @@ public class ShowEventActivity extends AppCompatActivity {
         String clickedGym = intent.getStringExtra("clickedGym");
         String clickedCreator = intent.getStringExtra("clickedCreator");
 
+        // Set values for the text views
         tvShowEventTitle.setText(clickedTitle);
         tvShowEventCreator.setText("Created by " + clickedCreator);
         tvShowEventPlace.setText(clickedGym);
@@ -63,13 +76,18 @@ public class ShowEventActivity extends AppCompatActivity {
         tvShowEventTime.setText(clickedTime);
         tvShowEventDescription.setText(clickedDescription);
 
+        // Call method initParticipants
         initParticipants();
 
+        // Create an array adapter
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, participants);
+        // Initialize list view
         participantList = findViewById(R.id.participantList);
+        // ???
         participantList.setAdapter(arrayAdapter);
     }
 
+    // ???
     public void changeJoinState(View view) {
 
         boolean checked = ((ToggleButton) view).isChecked();

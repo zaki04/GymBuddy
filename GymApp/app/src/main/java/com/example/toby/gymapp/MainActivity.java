@@ -27,10 +27,10 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    //private static final String URL_GET_EVENTS = "http://gymapp.cba.pl/getAllEvents.php";
-
+    // Define a list to store all the events
     List<Event> eventList;
 
+    // Define a RecyclerView
     RecyclerView recyclerView;
 
     @Override
@@ -38,15 +38,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Get the RecyclerView from xml
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        // Initialize the events
         eventList = new ArrayList<>();
 
+        // This method fetches and parses json to display it in RecyclerView
         loadEvents();
 
-        //creating buttons and referencing them to the XML
+        // Creating buttons and referencing them to the XML
         final Button btnAllEvents = (Button) findViewById(R.id.btnAllEvents);
         final Button btnMyEvents = (Button) findViewById(R.id.btnMyEvents);
 
@@ -79,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Set OnClick listener for the create event button
         ImageButtonCreateEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,20 +103,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Create a method that will fetch the events form the database
     private void loadEvents(){
 
+        // Create a string request
         StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_GET_EVENTS,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
                         try {
+                            // Convert the string to json array object
                             JSONArray array = new JSONArray(response);
 
+                            // Traversing through all the objects
                             for (int i = 0; i < array.length(); i++){
 
+                                // Get the event object from json array
                                 JSONObject event = array.getJSONObject(i);
 
+                                // Add the event to the event list
                                 eventList.add(new Event(
                                         event.getInt("id"),
                                         event.getString("uniqueid"),
@@ -125,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
                                 ));
                             }
 
+                            // Create adapter object and set it to RecyclerView
                             EventsAdapter adapter = new EventsAdapter(MainActivity.this, eventList);
                             recyclerView.setAdapter(adapter);
 
@@ -141,6 +152,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        Volley.newRequestQueue(this).add(stringRequest);
+        // Add the request to request queue object
+        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+        //Volley.newRequestQueue(this).add(stringRequest); ???
     }
 }
