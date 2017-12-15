@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\moviebackground.png",
+        "source": "C:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\src\\main\\res\\drawable-xxxhdpi\\moviebackground.png"
+    },
+    {
+        "merged": "C:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\movielogo.png",
+        "source": "C:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\src\\main\\res\\drawable-xxxhdpi\\movielogo.png"
+    },
+    {
+        "merged": "C:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\google_48px.png",
+        "source": "C:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\src\\main\\res\\drawable-xxxhdpi\\google_48px.png"
+    },
+    {
+        "merged": "C:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\user_groups_64px.png",
+        "source": "C:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\src\\main\\res\\drawable-xxxhdpi\\user_groups_64px.png"
+    },
+    {
+        "merged": "C:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\facebook_48px.png",
+        "source": "C:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\src\\main\\res\\drawable-xxxhdpi\\facebook_48px.png"
+    },
+    {
+        "merged": "C:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\movie_projector_52px.png",
+        "source": "C:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\src\\main\\res\\drawable-xxxhdpi\\movie_projector_52px.png"
+    }
+]

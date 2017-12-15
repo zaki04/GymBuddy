@@ -122,9 +122,9 @@ public class LoginUserActivity extends AppCompatActivity {
                                 // Store the user in shared preferences
                                 SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
 
-                                // Start the user account activity
+                                // Start the main activity
                                 finish();
-                                startActivity(new Intent(getApplicationContext(), UserAccountActivity.class));
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             } else {
                                 // Display a toast with message coming from the server
                                 Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();

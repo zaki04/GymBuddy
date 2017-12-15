@@ -41,6 +41,46 @@ public class UserAccountActivity extends AppCompatActivity {
         textViewAccountAge.setText(String.valueOf(user.getBirthdate()));
         textViewAccountEmail.setText(String.valueOf(user.getEmail()));
 
+        final ImageButton ImageButtonProfile = (ImageButton) findViewById(R.id.imageButtonProfile);
+        final ImageButton ImageButtonMenu = (ImageButton) findViewById(R.id.imageButtonMenu);
+        final ImageButton ImageButtonCreateEvent = (ImageButton) findViewById(R.id.imageButtonCreateEvent);
+
+
+        //making the ImageButtonProfile go to the UserAccountActivity on click, note that if not logged
+        //in it will just go to the LoginActivity.
+        ImageButtonProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent showProfileIntent = new Intent(UserAccountActivity.this, UserAccountActivity.class);
+                UserAccountActivity.this.startActivity(showProfileIntent);
+
+            }
+        });
+        //making the ImageButtonMenu go to the MainActivity on click, of course we're already within
+        //this activity because for now the button is only used here.
+        ImageButtonMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent showMenuIntent = new Intent(UserAccountActivity.this, MainActivity.class);
+                UserAccountActivity.this.startActivity(showMenuIntent);
+
+            }
+        });
+
+        // Set OnClick listener for the create event button
+        ImageButtonCreateEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent showCreateEventIntent = new Intent(UserAccountActivity.this, CreateEvent.class);
+                UserAccountActivity.this.startActivity(showCreateEventIntent);
+            }
+        });
+
+
+
+
         // Call the logout method when the user presses logout button
         findViewById(R.id.buttonAccountLogout).setOnClickListener(new View.OnClickListener() {
             @Override

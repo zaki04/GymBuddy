@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
      //same as the previous Logo screen, we make some buttons
      final Button btnSignIn = (Button) findViewById(R.id.btnSignIn);
      final Button btnCreateAccount = (Button) findViewById(R.id.btnCreateAccount);
-     final Button btnFacebook = (Button) findViewById(R.id.btnFacebook);
+
 
         if(SharedPrefManager.getInstance(this).isLoggedIn()){
             finish();
@@ -41,13 +41,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        btnFacebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent facebookIntent = new Intent(LoginActivity.this, MainActivity.class);
-                LoginActivity.this.startActivity(facebookIntent);
-            }
-        });
+
     }
 
 

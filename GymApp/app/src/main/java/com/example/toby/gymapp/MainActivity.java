@@ -50,11 +50,7 @@ public class MainActivity extends AppCompatActivity {
         loadEvents();
 
         // Creating buttons and referencing them to the XML
-        final Button btnAllEvents = (Button) findViewById(R.id.btnAllEvents);
-        final Button btnMyEvents = (Button) findViewById(R.id.btnMyEvents);
-
         final ImageButton ImageButtonProfile = (ImageButton) findViewById(R.id.imageButtonProfile);
-        final ImageButton ImageButtonCalendar = (ImageButton) findViewById(R.id.imageButtonCalendar);
         final ImageButton ImageButtonMenu = (ImageButton) findViewById(R.id.imageButtonMenu);
         final ImageButton ImageButtonCreateEvent = (ImageButton) findViewById(R.id.imageButtonCreateEvent);
 
@@ -90,16 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivity(showCreateEventIntent);
             }
         });
-        //Last but not least, the ImageButtonCalendar to sent the user to the calendar activity.
-        ImageButtonCalendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent showCalendarIntent = new Intent(MainActivity.this, CalendarActivity.class);
-                MainActivity.this.startActivity(showCalendarIntent);
-
-            }
-        });
 
     }
 
