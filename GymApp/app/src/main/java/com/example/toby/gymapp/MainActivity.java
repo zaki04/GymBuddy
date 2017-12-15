@@ -125,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
                                 // Add the event to the event list
                                 eventList.add(new Event(
                                         event.getInt("id"),
-                                        event.getString("uniqueid"),
                                         event.getString("title"),
                                         event.getString("description"),
                                         event.getString("date"),

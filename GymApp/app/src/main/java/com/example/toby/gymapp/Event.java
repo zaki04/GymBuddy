@@ -11,12 +11,11 @@ public class Event {
 
     // Declare variables
     private int id;
-    private String uniqueid, title, description, date, time, gym, creator;
+    private String title, description, date, time, gym, creator;
 
     // Create a constructor for the objects
-    public Event(int id, String uniqueid, String title, String description, String date, String time, String gym, String creator){
+    public Event(int id, String title, String description, String date, String time, String gym, String creator){
         this.id = id;
-        this.uniqueid = uniqueid;
         this.title = title;
         this.description = description;
         this.date = date;
@@ -28,11 +27,6 @@ public class Event {
     // Getter method for event's id
     public int getId(){
         return id;
-    }
-
-    // Getter method for event's unique id
-    public String getUniqueid(){
-        return uniqueid;
     }
 
     // Getter method for event's title
