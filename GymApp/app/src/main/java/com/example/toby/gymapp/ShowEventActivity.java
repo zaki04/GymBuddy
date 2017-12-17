@@ -50,12 +50,12 @@ public class ShowEventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_event);
 
         // Initialize view objects
-        tvShowEventTitle = (TextView) findViewById(R.id.tvShowEventTitle);
-        tvShowEventCreator = (TextView) findViewById(R.id.tvShowEventCreator);
-        tvShowEventPlace = (TextView) findViewById(R.id.tvShowEventPlace);
-        tvShowEventDescription = (TextView) findViewById(R.id.tvShowEventDescription);
-        tvShowEventDate = (TextView) findViewById(R.id.tvShowEventDate);
-        tvShowEventTime = (TextView) findViewById(R.id.tvShowEventTime);
+        tvShowEventTitle = findViewById(R.id.tvShowEventTitle);
+        tvShowEventCreator = findViewById(R.id.tvShowEventCreator);
+        tvShowEventPlace = findViewById(R.id.tvShowEventPlace);
+        tvShowEventDescription = findViewById(R.id.tvShowEventDescription);
+        tvShowEventDate = findViewById(R.id.tvShowEventDate);
+        tvShowEventTime = findViewById(R.id.tvShowEventTime);
 
         // Return the intent that started this activity
         Intent intent = getIntent();
@@ -87,7 +87,9 @@ public class ShowEventActivity extends AppCompatActivity {
         participantList.setAdapter(arrayAdapter);
     }
 
-    // ???
+    // Checks if the toggleButton is checked.
+    // If the button is checked the user joins the event and the user's name is added to the array.
+    // Otherwise the user leaves the event  and the user's name is removed from the array.
     public void changeJoinState(View view) {
 
         boolean checked = ((ToggleButton) view).isChecked();

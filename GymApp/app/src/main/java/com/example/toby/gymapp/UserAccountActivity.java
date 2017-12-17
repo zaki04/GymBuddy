@@ -27,10 +27,10 @@ public class UserAccountActivity extends AppCompatActivity {
         }
 
         // Initialize view objects
-        textViewAccountId = (TextView) findViewById(R.id.textViewAccountId);
-        textViewAccountName = (TextView) findViewById(R.id.textViewAccountName);
-        textViewAccountAge = (TextView) findViewById(R.id.textViewAccountAge);
-        textViewAccountEmail = (TextView) findViewById(R.id.textViewAccountEmail);
+        textViewAccountId = findViewById(R.id.textViewAccountId);
+        textViewAccountName = findViewById(R.id.textViewAccountName);
+        textViewAccountAge = findViewById(R.id.textViewAccountAge);
+        textViewAccountEmail = findViewById(R.id.textViewAccountEmail);
 
         // Get the current user from shared preferences
         User user = SharedPrefManager.getInstance(this).getUser();
@@ -41,9 +41,9 @@ public class UserAccountActivity extends AppCompatActivity {
         textViewAccountAge.setText(String.valueOf(user.getBirthdate()));
         textViewAccountEmail.setText(String.valueOf(user.getEmail()));
 
-        final ImageButton ImageButtonProfile = (ImageButton) findViewById(R.id.imageButtonProfile);
-        final ImageButton ImageButtonMenu = (ImageButton) findViewById(R.id.imageButtonMenu);
-        final ImageButton ImageButtonCreateEvent = (ImageButton) findViewById(R.id.imageButtonCreateEvent);
+        final ImageButton ImageButtonProfile = findViewById(R.id.imageButtonProfile);
+        final ImageButton ImageButtonMenu = findViewById(R.id.imageButtonMenu);
+        final ImageButton ImageButtonCreateEvent = findViewById(R.id.imageButtonCreateEvent);
 
 
         //making the ImageButtonProfile go to the UserAccountActivity on click, note that if not logged

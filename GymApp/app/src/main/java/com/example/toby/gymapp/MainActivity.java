@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
         loadEvents();
 
         // Creating buttons and referencing them to the XML
-        final ImageButton ImageButtonProfile = (ImageButton) findViewById(R.id.imageButtonProfile);
-        final ImageButton ImageButtonMenu = (ImageButton) findViewById(R.id.imageButtonMenu);
-        final ImageButton ImageButtonCreateEvent = (ImageButton) findViewById(R.id.imageButtonCreateEvent);
+        final ImageButton ImageButtonProfile = findViewById(R.id.imageButtonProfile);
+        final ImageButton ImageButtonMenu = findViewById(R.id.imageButtonMenu);
+        final ImageButton ImageButtonCreateEvent = findViewById(R.id.imageButtonCreateEvent);
 
 
         //making the ImageButtonProfile go to the UserAccountActivity on click, note that if not logged

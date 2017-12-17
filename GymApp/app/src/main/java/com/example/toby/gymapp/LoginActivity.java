@@ -15,8 +15,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
      //same as the previous Logo screen, we make some buttons
-     final Button btnSignIn = (Button) findViewById(R.id.btnSignIn);
-     final Button btnCreateAccount = (Button) findViewById(R.id.btnCreateAccount);
+     final Button btnSignIn = findViewById(R.id.btnSignIn);
+     final Button btnCreateAccount = findViewById(R.id.btnCreateAccount);
 
 
         if(SharedPrefManager.getInstance(this).isLoggedIn()){

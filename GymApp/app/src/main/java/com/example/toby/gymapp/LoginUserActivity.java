@@ -40,17 +40,16 @@ public class LoginUserActivity extends AppCompatActivity {
     CheckBox checkBoxSignIn;
     ProgressBar progressBarUserLogin;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_user);
 
         // Initialize view objects
-        editTextLoginEmail = (EditText) findViewById(R.id.editTextLoginEmail);
-        editTextLoginPassword = (EditText) findViewById(R.id.editTextLoginPassword);
-        checkBoxSignIn = (CheckBox) findViewById(R.id.checkBoxSignIn);
-        progressBarUserLogin = (ProgressBar) findViewById(R.id.progressBarUserLogin);
+        editTextLoginEmail = findViewById(R.id.editTextLoginEmail);
+        editTextLoginPassword = findViewById(R.id.editTextLoginPassword);
+        checkBoxSignIn = findViewById(R.id.checkBoxSignIn);
+        progressBarUserLogin = findViewById(R.id.progressBarUserLogin);
 
         // If user is already logged in, display user profile
         if(SharedPrefManager.getInstance(this).isLoggedIn()){

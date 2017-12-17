@@ -17,7 +17,7 @@ public class LogoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_logo);
 
      //adding our very first button, which is an invisible button filling the entire screen
-        final Button btnInvisible = (Button) findViewById(R.id.btnInvisible);
+        final Button btnInvisible = findViewById(R.id.btnInvisible);
 
      //Now we want to send users to the LoginActivity with a simple push anywhere on the screen
         btnInvisible.setOnClickListener(new View.OnClickListener() {

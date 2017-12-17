@@ -13,9 +13,9 @@ public class CalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
-        final ImageButton ImageButtonProfile = (ImageButton) findViewById(R.id.imageButtonProfile);
-        final ImageButton ImageButtonCalendar = (ImageButton) findViewById(R.id.imageButtonCalendar);
-        final ImageButton ImageButtonMenu = (ImageButton) findViewById(R.id.imageButtonMenu);
+        final ImageButton ImageButtonProfile = findViewById(R.id.imageButtonProfile);
+        final ImageButton ImageButtonCalendar = findViewById(R.id.imageButtonCalendar);
+        final ImageButton ImageButtonMenu = findViewById(R.id.imageButtonMenu);
 
 
         //making the ImageButtonProfile go to the UserAccountActivity on click, note that if not logged

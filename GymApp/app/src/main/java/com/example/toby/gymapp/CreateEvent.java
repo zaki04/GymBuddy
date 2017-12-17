@@ -66,30 +66,30 @@ public class CreateEvent extends AppCompatActivity {
         });
 
         // Initialize view objects
-        tvCreateEventWelcome = (TextView) findViewById(R.id.tvCreateEventWelcome);
-        etCreateEventTitle = (EditText) findViewById(R.id.etCreateEventTitle);
-        etCreateEventDescription = (EditText) findViewById(R.id.etCreateEventDescription);
+        tvCreateEventWelcome = findViewById(R.id.tvCreateEventWelcome);
+        etCreateEventTitle = findViewById(R.id.etCreateEventTitle);
+        etCreateEventDescription = findViewById(R.id.etCreateEventDescription);
 
         // Get the current user from Shared Preferences
         User user = SharedPrefManager.getInstance(this).getUser();
 
         // Initialize view objects
-        tvCreateEventCreator = (TextView) findViewById(R.id.tvCreateEventCreator);
-        tvCreateEventCreatorValue = (TextView) findViewById(R.id.tvCreateEventCreatorValue);
+        tvCreateEventCreator = findViewById(R.id.tvCreateEventCreator);
+        tvCreateEventCreatorValue = findViewById(R.id.tvCreateEventCreatorValue);
 
         // Set value for the text view
         // Sets the currently logged in user
         tvCreateEventCreatorValue.setText(String.valueOf(user.getEmail()));
 
         // Initialize view object
-        etCreateEventDate = (EditText) findViewById(R.id.etCreateEventDate);
+        etCreateEventDate = findViewById(R.id.etCreateEventDate);
         // Set the edit text unclickable
         etCreateEventDate.setClickable(false);
         // Define that the edit text is not focusable
         etCreateEventDate.setFocusable(false);
 
         // Initialize view object
-        etCreateEventSelectedGym = (EditText) findViewById(R.id.etCreateEventSelectedGym);
+        etCreateEventSelectedGym = findViewById(R.id.etCreateEventSelectedGym);
 
         // Set the listener to call when the user sets the date
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -119,7 +119,7 @@ public class CreateEvent extends AppCompatActivity {
         });
 
         // Initialize the view object
-        etCreateEventTime = (EditText) findViewById(R.id.etCreateEventTime);
+        etCreateEventTime = findViewById(R.id.etCreateEventTime);
         // Define the edit text as not clickable
         etCreateEventTime.setClickable(false);
         // Define the edit text as not focusable

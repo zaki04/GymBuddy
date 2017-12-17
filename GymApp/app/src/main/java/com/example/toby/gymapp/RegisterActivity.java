@@ -44,15 +44,15 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         // Get previously defined views from xml
-        textViewCreateAccount = (TextView) findViewById(R.id.textViewCreateAccount);
-        editTextName = (EditText) findViewById(R.id.editTextName);
-        editTextAge = (EditText) findViewById(R.id.editTextAge);
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextEmailConfirm = (EditText) findViewById(R.id.editTextEmailConfirm);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-        editTextPasswordConfirm = (EditText) findViewById(R.id.editTextPasswordConfirm);
-        checkBoxAgreedConditions = (CheckBox) findViewById(R.id.checkBoxAgreedConditions);
-        progressBarRegister = (ProgressBar) findViewById(R.id.progressBarRegister);
+        textViewCreateAccount = findViewById(R.id.textViewCreateAccount);
+        editTextName = findViewById(R.id.editTextName);
+        editTextAge = findViewById(R.id.editTextAge);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextEmailConfirm = findViewById(R.id.editTextEmailConfirm);
+        editTextPassword = findViewById(R.id.editTextPassword);
+        editTextPasswordConfirm = findViewById(R.id.editTextPasswordConfirm);
+        checkBoxAgreedConditions = findViewById(R.id.checkBoxAgreedConditions);
+        progressBarRegister = findViewById(R.id.progressBarRegister);
 
         // Set OnClickListener for the button
         // After clicking the button the user will be registered to the server
@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
         String emailConfirm = editTextEmailConfirm.getText().toString().trim();
         final String password = editTextPassword.getText().toString().trim();
         String passwordConfirm = editTextPasswordConfirm.getText().toString().trim();
-        CheckBox checkBox = (CheckBox) findViewById(R.id.checkBoxAgreedConditions);
+        CheckBox checkBox = findViewById(R.id.checkBoxAgreedConditions);
 
         // Validate field name
         if(TextUtils.isEmpty(name)){

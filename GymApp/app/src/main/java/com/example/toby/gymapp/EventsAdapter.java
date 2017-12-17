@@ -67,7 +67,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
     // ???
     class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvEventListTitle, tvEventListDescription, tvEventListDate, tvEventListTime,
-                tvEventListGym, tvEventListCreator;;
+                tvEventListGym, tvEventListCreator;
 
         public EventViewHolder(View itemView) {
             super(itemView);
