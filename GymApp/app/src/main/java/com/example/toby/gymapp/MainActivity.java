@@ -66,17 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        //making the ImageButtonMenu go to the MainActivity on click, of course we're already within
-        //this activity because for now the button is only used here.
-        ImageButtonMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent showMenuIntent = new Intent(MainActivity.this, MainActivity.class);
-                MainActivity.this.startActivity(showMenuIntent);
-
-            }
-        });
 
         // Set OnClick listener for the create event button
         ImageButtonCreateEvent.setOnClickListener(new View.OnClickListener() {

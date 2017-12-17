@@ -46,17 +46,7 @@ public class UserAccountActivity extends AppCompatActivity {
         final ImageButton ImageButtonCreateEvent = findViewById(R.id.imageButtonCreateEvent);
 
 
-        //making the ImageButtonProfile go to the UserAccountActivity on click, note that if not logged
-        //in it will just go to the LoginActivity.
-        ImageButtonProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent showProfileIntent = new Intent(UserAccountActivity.this, UserAccountActivity.class);
-                UserAccountActivity.this.startActivity(showProfileIntent);
-
-            }
-        });
         //making the ImageButtonMenu go to the MainActivity on click, of course we're already within
         //this activity because for now the button is only used here.
         ImageButtonMenu.setOnClickListener(new View.OnClickListener() {
