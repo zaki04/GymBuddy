@@ -42,10 +42,10 @@ import java.util.Map;
 public class CreateEvent extends AppCompatActivity {
 
     // Define view objects
-    TextView tvCreateEventWelcome, tvCreateEventGym, tvCreateEventCreator, tvCreateEventCreatorValue;
+    TextView tvCreateEventWelcome, tvCreateEventCreator, tvCreateEventCreatorValue;
     EditText etCreateEventTitle, etCreateEventDescription, etCreateEventDate, etCreateEventTime, etCreateEventSelectedGym;
-    ImageButton ibtnCreateEventDatePicker, ibCreateEventTimePicker;
-    Button btnCancelCreateEvent, btnCreateEventSubmit;
+    //ImageButton ibtnCreateEventDatePicker, ibCreateEventTimePicker, ibCreateEventPickGym;
+    //Button btnCancelCreateEvent, btnCreateEventSubmit;
 
     // Define a calendar object
     final Calendar myCalendar = Calendar.getInstance();
@@ -90,6 +90,8 @@ public class CreateEvent extends AppCompatActivity {
 
         // Initialize view object
         etCreateEventSelectedGym = findViewById(R.id.etCreateEventSelectedGym);
+        etCreateEventSelectedGym.setClickable(false);
+        etCreateEventSelectedGym.setFocusable(false);
 
         // Set the listener to call when the user sets the date
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -185,7 +187,7 @@ public class CreateEvent extends AppCompatActivity {
         });
 
         // Set OnClick Listener for the text view pick a gym
-        findViewById(R.id.tvCreateEventGym).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.ibCreateEventPickGym).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Create an AlertDialog with the arguments supplied to this builder and immediately display the dialog

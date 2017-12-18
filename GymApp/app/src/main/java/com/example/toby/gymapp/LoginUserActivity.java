@@ -37,7 +37,6 @@ public class LoginUserActivity extends AppCompatActivity {
     ImageView imageViewSignIn;
     TextView textViewSignIn;
     EditText editTextLoginEmail, editTextLoginPassword;
-    CheckBox checkBoxSignIn;
     ProgressBar progressBarUserLogin;
 
     @Override
@@ -48,7 +47,6 @@ public class LoginUserActivity extends AppCompatActivity {
         // Initialize view objects
         editTextLoginEmail = findViewById(R.id.editTextLoginEmail);
         editTextLoginPassword = findViewById(R.id.editTextLoginPassword);
-        checkBoxSignIn = findViewById(R.id.checkBoxSignIn);
         progressBarUserLogin = findViewById(R.id.progressBarUserLogin);
 
         // If user is already logged in, display user profile
