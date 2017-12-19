@@ -1,22 +1,17 @@
 package com.example.toby.gymapp;
 
 import android.content.Intent;
-import android.media.Image;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.ToggleButton;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Creating buttons and referencing them to the XML
         final ImageButton ImageButtonProfile = findViewById(R.id.imageButtonProfile);
-        final ImageButton ImageButtonMenu = findViewById(R.id.imageButtonMenu);
         final ImageButton ImageButtonCreateEvent = findViewById(R.id.imageButtonCreateEvent);
 
 
@@ -85,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Create a string request
         StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_GET_EVENTS,
+                // Pass a new on response listener
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -120,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 },
-
+                // Pass a new error listener
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -130,6 +125,5 @@ public class MainActivity extends AppCompatActivity {
 
         // Add the request to request queue object
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
-        //Volley.newRequestQueue(this).add(stringRequest); ???
     }
 }

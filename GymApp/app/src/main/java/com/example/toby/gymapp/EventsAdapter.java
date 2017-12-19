@@ -64,7 +64,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
         return eventList.size();
     }
 
-    // ???
+    // Create items in RecyclerView
+    // An item is an event
     class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvEventListTitle, tvEventListDescription, tvEventListDate, tvEventListTime,
                 tvEventListGym, tvEventListCreator;

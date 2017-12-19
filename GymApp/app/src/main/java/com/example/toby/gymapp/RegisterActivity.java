@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -26,9 +25,8 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
 
     // Define View objects
-    private TextView textViewCreateAccount;
-    private EditText editTextName, editTextAge, editTextEmail, editTextEmailConfirm, editTextPassword, editTextPasswordConfirm;
-    private CheckBox checkBoxAgreedConditions;
+    private EditText editTextName, editTextAge, editTextEmail, editTextEmailConfirm,
+            editTextPassword, editTextPasswordConfirm;
     private ProgressBar progressBarRegister;
 
     @Override
@@ -36,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // If user is already logged in, display user profile
+        // If user is already logged in, display main activity
         if(SharedPrefManager.getInstance(this).isLoggedIn()){
             finish();
             startActivity(new Intent(RegisterActivity.this, MainActivity.class));
@@ -44,14 +42,12 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         // Get previously defined views from xml
-        textViewCreateAccount = findViewById(R.id.textViewCreateAccount);
         editTextName = findViewById(R.id.editTextName);
         editTextAge = findViewById(R.id.editTextAge);
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextEmailConfirm = findViewById(R.id.editTextEmailConfirm);
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextPasswordConfirm = findViewById(R.id.editTextPasswordConfirm);
-        checkBoxAgreedConditions = findViewById(R.id.checkBoxAgreedConditions);
         progressBarRegister = findViewById(R.id.progressBarRegister);
 
         // Set OnClickListener for the button

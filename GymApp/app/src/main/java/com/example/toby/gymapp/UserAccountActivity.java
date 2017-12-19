@@ -1,14 +1,11 @@
 package com.example.toby.gymapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class UserAccountActivity extends AppCompatActivity {
 
@@ -41,11 +38,8 @@ public class UserAccountActivity extends AppCompatActivity {
         textViewAccountAge.setText(String.valueOf(user.getBirthdate()));
         textViewAccountEmail.setText(String.valueOf(user.getEmail()));
 
-        final ImageButton ImageButtonProfile = findViewById(R.id.imageButtonProfile);
         final ImageButton ImageButtonMenu = findViewById(R.id.imageButtonMenu);
         final ImageButton ImageButtonCreateEvent = findViewById(R.id.imageButtonCreateEvent);
-
-
 
         //making the ImageButtonMenu go to the MainActivity on click, of course we're already within
         //this activity because for now the button is only used here.
@@ -67,9 +61,6 @@ public class UserAccountActivity extends AppCompatActivity {
                 UserAccountActivity.this.startActivity(showCreateEventIntent);
             }
         });
-
-
-
 
         // Call the logout method when the user presses logout button
         findViewById(R.id.buttonAccountLogout).setOnClickListener(new View.OnClickListener() {

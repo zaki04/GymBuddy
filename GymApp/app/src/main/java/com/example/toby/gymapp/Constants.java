@@ -16,5 +16,4 @@ public class Constants {
     public static final String URL_LOGIN = ROOT_URL+"userLogin.php";
     public static final String URL_CREATE_EVENT = ROOT_URL+"createEvent.php";
     public static final String URL_GET_EVENTS = ROOT_URL+"getAllEvents.php";
-    public static final String URL_GET_ONE_EVENT = ROOT_URL+"getOneEvent.php";
 }
