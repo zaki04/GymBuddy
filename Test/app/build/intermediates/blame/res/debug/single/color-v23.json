@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/color-v23/abc_tint_switch_thumb.xml",
+        "source": "/Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/res/color-v23/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/color-v23/abc_tint_seek_thumb.xml",
+        "source": "/Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/res/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/color-v23/abc_tint_edittext.xml",
+        "source": "/Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/color-v23/abc_color_highlight_material.xml",
+        "source": "/Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_text_material.xml",
+        "source": "/Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/res/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/color-v23/abc_tint_spinner.xml",
+        "source": "/Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/color-v23/abc_tint_btn_checkable.xml",
+        "source": "/Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/res/color-v23/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/color-v23/abc_tint_default.xml",
+        "source": "/Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/res/color-v23/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/color-v23/abc_tint_switch_track.xml",
+        "source": "/Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/res/color-v23/abc_tint_switch_track.xml"
+    }
+]

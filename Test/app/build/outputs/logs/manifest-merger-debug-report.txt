@@ -1,0 +1,87 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:2:1-21:12
+	package
+		ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:3:5-31
+		INJECTED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml
+application
+ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:5:5-19:19
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /Users/vinther/.android/build-cache/97f618c437416a341fc7525dabb86dae785c54a8/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /Users/vinther/.android/build-cache/4c5124d58a1e67c0d04cb2f41f8e4493b55fd426/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /Users/vinther/.android/build-cache/f69e46708bc250f21ab28bf4745f7fb6806ad6c9/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /Users/vinther/.android/build-cache/66c984b18d4ba6959fcfd644193c39c6659b2fb8/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /Users/vinther/.android/build-cache/19131197070adf0ebb70caaf3c9b0a29b26b2945/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /Users/vinther/.android/build-cache/4e1a1577fbba3e8a4e2dd4c12c08d1d6df26ee59/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /Users/vinther/.android/build-cache/729a22b1d1d414425e5b445bd391421873074043/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /Users/vinther/.android/build-cache/6a2290d8fba7408ff65fd80d60765386ac2d9448/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/vinther/.android/build-cache/a0bb3b6b7666099caeb0d8318a256f2085169192/output/AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:8:9-41
+	android:supportsRtl
+		ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:10:9-35
+	android:roundIcon
+		ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:9:9-54
+	android:allowBackup
+		ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:6:9-35
+	android:icon
+		ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:7:9-43
+	android:theme
+		ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:11:9-40
+activity#com.example.test.MainActivity
+ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:12:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml:16:27-74
+uses-sdk
+INJECTED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /Users/vinther/.android/build-cache/97f618c437416a341fc7525dabb86dae785c54a8/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /Users/vinther/.android/build-cache/4c5124d58a1e67c0d04cb2f41f8e4493b55fd426/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /Users/vinther/.android/build-cache/f69e46708bc250f21ab28bf4745f7fb6806ad6c9/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /Users/vinther/.android/build-cache/66c984b18d4ba6959fcfd644193c39c6659b2fb8/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /Users/vinther/.android/build-cache/19131197070adf0ebb70caaf3c9b0a29b26b2945/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /Users/vinther/.android/build-cache/4e1a1577fbba3e8a4e2dd4c12c08d1d6df26ee59/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /Users/vinther/.android/build-cache/729a22b1d1d414425e5b445bd391421873074043/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /Users/vinther/.android/build-cache/6a2290d8fba7408ff65fd80d60765386ac2d9448/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/vinther/.android/build-cache/a0bb3b6b7666099caeb0d8318a256f2085169192/output/AndroidManifest.xml:5:5-7:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vinther/Desktop/P7-Application/Test/app/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /Users/vinther/.android/build-cache/97f618c437416a341fc7525dabb86dae785c54a8/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /Users/vinther/.android/build-cache/4c5124d58a1e67c0d04cb2f41f8e4493b55fd426/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /Users/vinther/.android/build-cache/f69e46708bc250f21ab28bf4745f7fb6806ad6c9/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /Users/vinther/.android/build-cache/66c984b18d4ba6959fcfd644193c39c6659b2fb8/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /Users/vinther/.android/build-cache/19131197070adf0ebb70caaf3c9b0a29b26b2945/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /Users/vinther/.android/build-cache/4e1a1577fbba3e8a4e2dd4c12c08d1d6df26ee59/output/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /Users/vinther/.android/build-cache/729a22b1d1d414425e5b445bd391421873074043/output/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /Users/vinther/.android/build-cache/6a2290d8fba7408ff65fd80d60765386ac2d9448/output/AndroidManifest.xml:25:5-27:41
+	android:value
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/AndroidManifest.xml:27:9-38
+	android:name
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/AndroidManifest.xml:26:9-47

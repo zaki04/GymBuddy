@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/vinther/.android/build-cache/2e4a783b3a72a0a61d01e6c8f50bf8ae75a888f8/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    }
+]

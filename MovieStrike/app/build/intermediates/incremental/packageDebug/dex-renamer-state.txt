@@ -1,0 +1,7 @@
+#Thu Nov 16 15:20:39 CET 2017
+base.0=C\:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_0ce042b465f96263d143527bb4c540d45e88be95
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_055f56e3adbb6f260e5eb49d215181fdeb5590b9\\classes.dex
+base.1=C\:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_055f56e3adbb6f260e5eb49d215181fdeb5590b9
+file.0=C\:\\Users\\Toby\\AndroidStudioProjects\\MovieStrike\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_0ce042b465f96263d143527bb4c540d45e88be95\\classes.dex

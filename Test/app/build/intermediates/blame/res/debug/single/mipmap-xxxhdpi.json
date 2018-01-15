@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher_round.png",
+        "source": "/Users/vinther/Desktop/P7-Application/Test/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/vinther/Desktop/P7-Application/Test/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
+        "source": "/Users/vinther/Desktop/P7-Application/Test/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    }
+]
